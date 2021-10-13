@@ -78,8 +78,12 @@ function toDashCase(string) {
  */
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-    
+    // writing conditional statement with condition stating case insensitivity
+    if (string[0].toUpperCase || string[0].toLowerCase === char) {
+            return true;
+    } else {
+        return false;
+    };
 
     // YOUR CODE ABOVE HERE //
 }
@@ -111,8 +115,8 @@ function endsWith(string, char) {
  */
 function concat(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
+    //concatenating stringOne and stringTwo
+    return stringOne + stringTwo;
 
     // YOUR CODE ABOVE HERE //
 }
@@ -130,8 +134,8 @@ function concat(stringOne, stringTwo) {
 function join(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
     var args = Array.from(arguments);
-
-
+    // writing a return funciton that joins the elements of the array
+    return args.join("");
     // YOUR CODE ABOVE HERE //
 }
 
