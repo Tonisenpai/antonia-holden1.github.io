@@ -172,9 +172,13 @@ function longest(stringOne, stringTwo) {
  */
 function sortAscending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
+    if (stringTwo < stringOne) {
+        return -1;
+    } else if (stringTwo > stringOne) {
+        return 1;
+    } else if (stringOne = stringTwo) {
+        return 0;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -188,10 +192,13 @@ function sortAscending(stringOne, stringTwo) {
  */
 function sortDescending(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
-
-
-
+    if (stringOne < stringTwo) {
+        return -1;
+    } else if (stringOne > stringTwo) {
+        return 1;
+    } else if (stringOne = stringTwo) {
+        return 0;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
