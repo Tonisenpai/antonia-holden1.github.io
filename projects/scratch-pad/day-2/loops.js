@@ -79,10 +79,7 @@ function printObjectValues(object) {
  */
 function getObjectLength(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  return Object.keys(object).length;
   // YOUR CODE ABOVE HERE //
 }
 
