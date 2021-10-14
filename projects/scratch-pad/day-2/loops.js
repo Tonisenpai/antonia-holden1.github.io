@@ -57,10 +57,7 @@ function printObjectKeys(object) {
  */
 function getObjectValues(object) {
   // YOUR CODE BELOW HERE //
-  
-  
-  
-  
+  return Object.values(object);
   // YOUR CODE ABOVE HERE //
 }
 
