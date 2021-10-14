@@ -79,11 +79,11 @@ function toDashCase(string) {
 function beginsWith(string, char) {
     // YOUR CODE BELOW HERE //
     // writing conditional statement with condition stating case insensitivity
-    if (string[0].toUpperCase || string[0].toLowerCase === char) {
-            return true;
-    } else {
-        return false;
-    };
+    if (string[0].toLowerCase() === char.toLowerCase()) {
+        return true;
+} else {
+    return false;
+};
 
     // YOUR CODE ABOVE HERE //
 }
@@ -102,8 +102,11 @@ function beginsWith(string, char) {
  */
 function endsWith(string, char) {
     // YOUR CODE BELOW HERE //
-
-
+    if (string.toLowerCase([string.length-1]) === char.toLowerCase()) {
+        return true; 
+    } else {
+        return false;
+    }
 
     // YOUR CODE ABOVE HERE //
 }
@@ -150,7 +153,11 @@ function join(stringOne, stringTwo) {
  */
 function longest(stringOne, stringTwo) {
     // YOUR CODE BELOW HERE //
-
+    if (stringOne.length > stringTwo.length) {
+        return stringOne;
+    } else {
+        return stringTwo;
+    }
 
 
     // YOUR CODE ABOVE HERE //
