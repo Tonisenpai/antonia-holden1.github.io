@@ -13,7 +13,9 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
+    if (base.filter(i > base)) {
+        return true
+    } else return false;
     
     
     
