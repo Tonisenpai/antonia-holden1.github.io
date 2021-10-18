@@ -56,9 +56,13 @@ function createLessThanFilter(base) {
  */
 function createEndsWithFilter(endsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    return function (str) {
+        if (endsWith.toLowerCase() === str.charAt(str.length-1) || endsWith.toUpperCase() === str.charAt(str.length-1)) {
+            return true;
+        } else {
+            return false;
+        }  
+    }  
     
     // YOUR CODE ABOVE HERE //
 }
