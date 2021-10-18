@@ -13,12 +13,9 @@
  */
 function createGreaterThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    if (base.filter(i > base)) {
-        return true
-    } else return false;
-    
-    
-    
+    return function (value) {
+        return value > base;
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -29,10 +26,9 @@ function createGreaterThanFilter(base) {
  */
 function createLessThanFilter(base) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return function (value) {
+        return value < base;       
+    }
     // YOUR CODE ABOVE HERE //
 }
 
@@ -41,11 +37,18 @@ function createLessThanFilter(base) {
  * Function that tests whether a given String starts with the startsWith 
  * character.
  */
-function createStartsWithFilter(startsWith) {
+ function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+        var v1 = startsWith.toLowercase();
+        var v2 = startsWith.toUpperCase();
+        return function (str) {
+            if (startsWith === str[0]) {
+                return true;
+            } else {
+                return false;
+            }  
+        // YOUR CODE ABOVE HERE //
+    }
     
     // YOUR CODE ABOVE HERE //
 }
