@@ -76,10 +76,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    var outputArr = [];
+    for (var i = 0; i <= strings.length-1; i++) {
+        outputArr - [i].push;
+    } 
+    strings.replace(modify);
     // YOUR CODE ABOVE HERE //
 }
 
