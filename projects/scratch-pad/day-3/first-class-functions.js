@@ -39,17 +39,13 @@ function createLessThanFilter(base) {
  */
  function createStartsWithFilter(startsWith) {
     // YOUR CODE BELOW HERE //
-        var v1 = startsWith.toLowercase();
-        var v2 = startsWith.toUpperCase();
         return function (str) {
-            if (startsWith === str[0]) {
+            if (startsWith.toLowerCase() === str[0] || startsWith.toUpperCase() === str[0]) {
                 return true;
             } else {
                 return false;
             }  
-        // YOUR CODE ABOVE HERE //
-    }
-    
+        }    
     // YOUR CODE ABOVE HERE //
 }
 
