@@ -27,16 +27,15 @@ noises[noises.length] = "neigh";
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-
-
-
+animal["noises"] = noises;
+noises.push("tweet");
 /* *******************************************************************
  * Step 4 - Review
  *
  * 1. What are the different ways you can access properties on objects?
- *
+ *dot notation, bracket notation, Object.keys() method
  * 2. What are the different ways of accessing elements on arrays?
- *
+ * indexing with bracket notation (array[i])
  * *******************************************************************
  */
 
@@ -52,7 +51,29 @@ noises[noises.length] = "neigh";
 //////////////////////////////////////////////////////////////////////
 // Step 6 - A Collection of Animals //////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+var animals = [];
+animals.push(animal);
 
+var duck = {
+  species: "duck",
+  name: "Jerome",
+  noises: ["quack", "honk", "sneeze", "woosh"]
+};
+animals.push(duck);
+
+var pig = {
+  species: "pig"
+  name: "Larry",
+  noises: ["oink", "snort", "belch"],
+};
+animals.push(pig);
+
+var horse = {
+  species: "horse",
+  name: "Wilfred",
+  noises: ["neigh", "whinny", "snort", "clop"]
+};
+animals.push(horse);
 
 
 //////////////////////////////////////////////////////////////////////
