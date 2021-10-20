@@ -12,18 +12,18 @@
 // Step 1 - Object Creation //////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var animal = {};
-animal.species = "";
-animal["name"] = "";
+animal.species = "rhinocerous";
+animal["name"] = "Kelly";
 animal.noises = [];
 console.log(animal);
 //////////////////////////////////////////////////////////////////////
 // Step 2 - Array Creation ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var noises = [];
-noises[0] = "ribbit";
-noises.push("oink");
-noises.unshift("quack");
-noises[noises.length] = "neigh";
+noises[0] = "grunt";
+noises.push("scream");
+noises.unshift("pant");
+noises[noises.length] = "growl";
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Combining Step 1 and 2 ///////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -62,9 +62,9 @@ var duck = {
 animals.push(duck);
 
 var pig = {
-  species: "pig"
+  species: "pig",
   name: "Larry",
-  noises: ["oink", "snort", "belch"],
+  noises: ["oink", "snort", "belch"]
 };
 animals.push(pig);
 
@@ -79,8 +79,20 @@ animals.push(horse);
 //////////////////////////////////////////////////////////////////////
 // Step 7 - Making Friends ///////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+//I am choosing an array for the data structure because it is easier 
+//to push data types into an array and manipulate them in different ways 
+var friends = [];
+
+function getRandom(animals) {
+  return Math.floor(Math.random() * animals.length);
+}
+
+friends.push(animals[2].toString());
+
+Object.entries(friends);
 
 
+horse["friends"] = friends;
 
 /**
  * Nice work! You're done Part 1. Pat yourself on the back and
