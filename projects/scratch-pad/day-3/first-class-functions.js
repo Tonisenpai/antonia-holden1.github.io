@@ -76,11 +76,11 @@ function createEndsWithFilter(endsWith) {
  */
 function modifyStrings(strings, modify) {
     // YOUR CODE BELOW HERE //
-    var outputArr = [];
+    var strings = [];
     for (var i = 0; i <= strings.length-1; i++) {
-        outputArr - [i].push;
+        return strings.modify(i);
     } 
-    strings.replace(modify);
+    
     // YOUR CODE ABOVE HERE //
 }
 
@@ -95,8 +95,12 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    
-    
+    for (var i = 0; i <= strings.length; i++) {
+        if (test === i) {
+            return true;
+        }
+    }
+        return false;
     
     
     // YOUR CODE ABOVE HERE //
