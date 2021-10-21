@@ -15,13 +15,12 @@ const { indexOf } = require("lodash");
 // Step 1 - Search ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 function search(animals, name) {
-    for (i = 0; i < animals.length; i++){
-    if (animals.includes("name")) {
+    for (var i = 0; i < animals.length; i++){
+    if (animals[i].name === name) {
         return animals[i];
-    } else {
-        return null;
-        }
+    } 
     }
+    return null;
 }
 
 

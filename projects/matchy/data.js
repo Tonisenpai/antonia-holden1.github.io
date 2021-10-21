@@ -87,10 +87,9 @@ function getRandom(animals) {
   return Math.floor(Math.random() * animals.length);
 }
 
-friends.push(animals[2].toString());
+var randomIndex = getRandom(animals);
 
-Object.entries(friends);
-
+friends.push(animals[randomIndex].name);
 
 horse["friends"] = friends;
 
