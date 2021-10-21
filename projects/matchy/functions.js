@@ -30,7 +30,7 @@ function search(animals, name) {
 function replace(animals, name, replacement) {
     for (var i = 0; i < animals.length; i++){
         if (animals[i].name === name) {
-            return animals.replace(name, replacement);
+            return animals[i] = replacement;
         } 
         }
         return null;
