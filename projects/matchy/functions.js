@@ -40,13 +40,29 @@ function replace(animals, name, replacement) {
 //////////////////////////////////////////////////////////////////////
 // Step 3 - Remove ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function remove() {}
+function remove(animals, name) {
+    for (var i = 0; i < animals.length; i++) {
+        if (animals[i].name === name) {
+            return delete animals[i];
+        } else if (animals[i].name !== name) {
+            return animals[i];
+        }
+    }
+}
 
 
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function add() {}
+function add(animals, object) {
+    for (var i = 0; i < animals.length; i++) {
+        if (object.hasOwnProperty("name", "species").length > 0 && "name" === "undefined") {
+            return animals.push(object);
+        } else {
+            
+        }
+    }
+}
 
 
 /**
