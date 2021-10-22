@@ -29,9 +29,9 @@ function valuesToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function arrayOrObject(collection) {
-    if (collection.isArray) {
+    if (collection instanceof Array) {
         return 'array';
-    } else if (typeof collection === 'object') {
+    } else if (collection instanceof Object) {
         return 'object';
     }
 }
