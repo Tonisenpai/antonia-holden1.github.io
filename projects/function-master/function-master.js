@@ -61,7 +61,7 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    if (object.hasOwnProperty('name')) {
+    if (Object.keys(object.name)) {
         return "Welcome " + object.name + "!";
     }
 }
@@ -71,7 +71,9 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-
+    if ("name" in object && "species" in object) {
+        return object.name + "is a " + object.species;
+    }
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -91,7 +93,13 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-
+    for (var i = 0; i < string.length; i++){
+        if (string[i] === word) {
+            return true;
+        } 
+            
+    }
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
