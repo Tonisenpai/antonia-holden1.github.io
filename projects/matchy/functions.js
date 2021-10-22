@@ -44,10 +44,9 @@ function remove(animals, name) {
     for (var i = 0; i < animals.length; i++) {
         if (animals[i].name === name) {
             return delete animals[i];
-        } else if (animals[i].name !== name) {
-            return animals[i];
-        }
+        } 
     }
+    return null;
 }
 
 
