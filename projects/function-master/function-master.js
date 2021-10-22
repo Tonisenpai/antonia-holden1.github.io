@@ -31,7 +31,7 @@ function valuesToString(object) {
 function arrayOrObject(collection) {
     if (collection.isArray) {
         return 'array';
-    } else {
+    } else if (typeof collection === 'object') {
         return 'object';
     }
 }

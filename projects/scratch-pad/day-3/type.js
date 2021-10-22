@@ -14,9 +14,11 @@
  */
 function isArray(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    if (value.isArray) {
+        return true;
+    } else{
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -31,9 +33,11 @@ function isArray(value) {
  */
 function isObject(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    if (value instanceof Object) {
+        return true;
+    } else {
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -74,10 +78,7 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
-    
+    return typeof value.toString();
     // YOUR CODE ABOVE HERE //
 }
 
