@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { isObject } = require("lodash");
+const { isObject, keys } = require("lodash");
 
 function objectValues(object) {
     return Object.values(object);
@@ -13,7 +13,8 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-    
+    Object.keys(object);
+    return keys.toString;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -61,7 +62,7 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    if (Object.keys(object.name)) {
+    if (object.hasOwnProperty("name")) {
         return "Welcome " + object.name + "!";
     }
 }
@@ -71,7 +72,7 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-    if ("name" in object && "species" in object) {
+    if (object.hasOwnProperty("name") && object.hasOwnProperty("species")) {
         return object.name + "is a " + object.species;
     }
 }
@@ -94,7 +95,7 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
     for (var i = 0; i < string.length; i++){
-        if (string[i] === word) {
+        if (string[i].hasOwnProperty(word)) {
             return true;
         } 
             

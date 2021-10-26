@@ -78,7 +78,13 @@ function isCollection(value) {
  */ 
 function typeOf(value) {
     // YOUR CODE BELOW HERE //
-    return typeof value.toString();
+    if (Array.isArray) {
+        return "array";
+    } else if (typeof value === "string" || typeof value === "object" || typeof value === "undefined" || typeof value === "number" || typeof value === "boolean" || typeof value === "function") {
+        return typeof(value);
+    } else {
+        return null;
+}
     // YOUR CODE ABOVE HERE //
 }
 

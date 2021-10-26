@@ -57,10 +57,10 @@ function add(animals, object) {
     for (var i = 0; i < animals.length; i++) {
         if (object.hasOwnProperty("name", "species").length > 0 && "name" === "undefined") {
             return animals.push(object);
-        } else {
+        } 
             
-        }
     }
+    return null;
 }
 
 

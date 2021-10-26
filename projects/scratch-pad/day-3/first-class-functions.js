@@ -95,7 +95,7 @@ function modifyStrings(strings, modify) {
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
     for (var i = 0; i <= strings.length; i++) {
-        if (test === i) {
+        if (strings.length[i] === test) {
             return true;
         }
     }

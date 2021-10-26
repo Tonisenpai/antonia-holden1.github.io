@@ -96,12 +96,15 @@ _.first = function (arr, num) {
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
 _.last = function (array, number) {
-    if (array.isArray === false) {
+    for (let i = 0; i <= array.length; i++) {
+        if (array.isArray === false) {
         return [];
     } else if (number === NaN) {
         return array.length-1;
     } else {
         return array[array.length-1];
+    }
+    
     }
 }
 
@@ -121,7 +124,7 @@ _.last = function (array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 _.indexOf = function (arr, value) {
-
+    
 }
 
 /** _.contains
