@@ -20,7 +20,9 @@ var _ = {};
 *   _.identity(5) === 5
 *   _.identity({a: "b"}) === {a: "b"}
 */
-
+_.identity = function(value) {
+    return value;
+}
 
 /** _.typeOf
 * Arguments:
@@ -41,7 +43,13 @@ var _ = {};
 * _.typeOf("javascript") -> "string"
 * _.typeOf([1,2,3]) -> "array"
 */
-
+_.typeOf = function(value) {
+    if (Array.isArray) {
+        return "array";
+    } else if (typeof value === "string" || typeof value === "object" || typeof value === "undefined" || typeof value === "number" || typeof value === "boolean" || typeof value === "function") {
+        return typeof(value);
+    }
+}
 
 /** _.first
 * Arguments:
@@ -60,7 +68,15 @@ var _ = {};
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-
+_.first = function (arr, num) {
+    if (arr.isArray === false) {
+        return [];
+    } else if (num === NaN) {
+        return arr[0];
+    } else {
+        return num[0];
+    }
+}
 
 /** _.last
 * Arguments:
@@ -79,7 +95,15 @@ var _ = {};
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-
+_.last = function (array, number) {
+    if (array.isArray === false) {
+        return [];
+    } else if (number === NaN) {
+        return array.length-1;
+    } else {
+        return array[array.length-1];
+    }
+}
 
 /** _.indexOf
 * Arguments:
@@ -96,7 +120,9 @@ var _ = {};
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
+_.indexOf = function (arr, value) {
 
+}
 
 /** _.contains
 * Arguments:
@@ -112,7 +138,9 @@ var _ = {};
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
+_.contains = function (arr, value) {
 
+}
 
 /** _.each
 * Arguments:
@@ -140,7 +168,9 @@ var _ = {};
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
+_.unique = function (array) {
 
+}
 
 /** _.filter
 * Arguments:
@@ -220,7 +250,9 @@ var _ = {};
 * Examples:
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
+_.pluck = function (objArr, prop) {
 
+}
 
 /** _.every
 * Arguments:
