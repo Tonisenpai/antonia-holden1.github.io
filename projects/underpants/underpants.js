@@ -103,12 +103,14 @@ _.first = function (arr, num) {
 */
 _.last = function (array, number) {
     for (let i = 0; i <= array.length; i++) {
-        if (array.isArray === false) {
+        if (Array.isArray(array) !== true || number < 0) {
         return [];
-    } else if (number === NaN) {
-        return array.length-1;
-    } else {
+    } else if (number === undefined) {
         return array[array.length-1];
+    } else if (number > array.length) {
+        return array;
+    } else {
+        return array.splice(array.length-1, number);
     }
     
     }
@@ -130,7 +132,13 @@ _.last = function (array, number) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 _.indexOf = function (arr, value) {
-    
+    for (let i = 0; i <= arr.length; i++) {
+        if (Array.isArray(arr) !== true || arr[value] === undefined) {
+            return -1;
+        } else if (value.length > 0 && arr.includes(value)) {
+            return i;
+        }
+    }
 }
 
 /** _.contains
@@ -148,7 +156,7 @@ _.indexOf = function (arr, value) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 _.contains = function (arr, value) {
-
+    return (arr.includes(value) ? true : false);
 }
 
 /** _.each
@@ -166,6 +174,8 @@ _.contains = function (arr, value) {
 *   _.each(["a","b","c"], function(e,i,a){ console.log(e)});
 *      -> should log "a" "b" "c" to the console
 */
+
+
 
 
 /** _.unique
@@ -196,6 +206,7 @@ _.unique = function (array) {
 * Extra Credit:
 *   use _.each in your implementation
 */
+
 
 
 /** _.reject
