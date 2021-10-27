@@ -43,7 +43,7 @@ function replace(animals, name, replacement) {
 function remove(animals, name) {
     for (var i = 0; i < animals.length; i++) {
         if (animals[i].name === name) {
-            return delete animals[i];
+            return animals.splice(i);
         } 
     }
     return null;
@@ -53,14 +53,14 @@ function remove(animals, name) {
 //////////////////////////////////////////////////////////////////////
 // Step 4 - Add ///////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
-function add(animals, object) {
+function add(animals, animal) {
     for (var i = 0; i < animals.length; i++) {
-        if (object.hasOwnProperty("name", "species").length > 0 && "name" === "undefined") {
-            return animals.push(object);
+        if (animals[i].name !== animal.name && animals[i].species !== animal.species) {
+            animals.push(animal);
         } 
-            
+        return animals;  
     }
-    return null;
+    
 }
 
 

@@ -14,7 +14,7 @@ function objectValues(object) {
 
 function keysToString(object) {
     Object.keys(object);
-    return keys.toString;
+    return keys.toString + " ";
 }
 
 //////////////////////////////////////////////////////////////////////
