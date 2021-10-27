@@ -44,10 +44,14 @@ _.identity = function(value) {
 * _.typeOf([1,2,3]) -> "array"
 */
 _.typeOf = function(value) {
-    if (Array.isArray) {
+    if (typeof value !== "object") {
+        return typeof value;
+    } else if (Array.isArray(value) === true) {
         return "array";
-    } else if (typeof value === "string" || typeof value === "object" || typeof value === "undefined" || typeof value === "number" || typeof value === "boolean" || typeof value === "function") {
-        return typeof(value);
+    } else if (typeof value === "object" && value !== null && Array.isArray(value) !== true && !(value instanceof Date)) {
+        return "object";
+    } else {
+        return "null";
     }
 }
 
@@ -69,12 +73,14 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
 _.first = function (arr, num) {
-    if (arr.isArray === false) {
+    if (Array.isArray(arr) !== true || num < 0) {
         return [];
-    } else if (num === NaN) {
+    } else if (num === undefined) {
         return arr[0];
+    } else if (num > arr.length) {
+        return arr;
     } else {
-        return num[0];
+       return arr.splice(0, num);
     }
 }
 
