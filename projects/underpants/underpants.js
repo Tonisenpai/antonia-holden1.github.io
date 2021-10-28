@@ -72,7 +72,7 @@ _.typeOf = function(value) {
 *   _.first(["a", "b", "c"], 1) -> "a"
 *   _.first(["a", "b", "c"], 2) -> ["a", "b"]
 */
-_.first = function (arr, num) {
+_.first = function(arr, num) {
     if (Array.isArray(arr) !== true || num < 0) {
         return [];
     } else if (num === undefined) {
@@ -101,19 +101,17 @@ _.first = function (arr, num) {
 *   _.last(["a", "b", "c"], 1) -> "c"
 *   _.last(["a", "b", "c"], 2) -> ["b", "c"]
 */
-_.last = function (array, number) {
-    for (let i = 0; i <= array.length; i++) {
-        if (Array.isArray(array) !== true || number < 0) {
+_.last = function(array, number) {
+    if (Array.isArray(array) !== true || number < 0) {
         return [];
-    } else if (number === undefined) {
+    } else if (number === undefined || isNaN(number)) {
         return array[array.length-1];
     } else if (number > array.length) {
         return array;
     } else {
-        return array.splice(array.length-1, number);
+        return array.splice(array.length - number, number);
     }
     
-    }
 }
 
 /** _.indexOf
@@ -131,15 +129,14 @@ _.last = function (array, number) {
 *   _.indexOf(["a","b","c"], "c") -> 2
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
-_.indexOf = function (arr, value) {
-    for (let i = 0; i <= arr.length; i++) {
-        if (Array.isArray(arr) !== true || arr[value] === undefined) {
-            return -1;
-        } else if (value.length > 0 && arr.includes(value)) {
-            return i;
-        }
+_.indexOf = function(arr, value) {
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] === value) {
+          return i;
+      } 
     }
-}
+    return -1;
+  }
 
 /** _.contains
 * Arguments:
@@ -155,7 +152,7 @@ _.indexOf = function (arr, value) {
 * Examples:
 *   _.contains([1,"two", 3.14], "two") -> true
 */
-_.contains = function (arr, value) {
+_.contains = function(arr, value) {
     return (arr.includes(value) ? true : false);
 }
 
@@ -175,7 +172,17 @@ _.contains = function (arr, value) {
 *      -> should log "a" "b" "c" to the console
 */
 
-
+_.each = function(collection, action) {
+    if(Array.isArray(collection)) {
+        for(var i = 0; i < collection.length; i++) {
+            action(collection[i], i, collection);
+        }
+    } else {
+        for (var key in collection) {
+            action(collection[key], key, collection);
+        }
+    }
+}
 
 
 /** _.unique
@@ -187,7 +194,7 @@ _.contains = function (arr, value) {
 * Examples:
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
-_.unique = function (array) {
+_.unique = function(array) {
 
 }
 
@@ -207,6 +214,10 @@ _.unique = function (array) {
 *   use _.each in your implementation
 */
 
+_.filter = function(array, action) {
+
+}
+
 
 
 /** _.reject
@@ -221,6 +232,10 @@ _.unique = function (array) {
 * Examples:
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
+
+_.reject = function(array, action) {
+
+}
 
 
 /** _.partition
@@ -241,7 +256,9 @@ _.unique = function (array) {
 *   }); -> [[2,4],[1,3,5]]
 }
 */
+_.partition = function(array, action) {
 
+}
 
 /** _.map
 * Arguments:
@@ -258,6 +275,17 @@ _.unique = function (array) {
 * Examples:
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
+
+_.map = function (collection, action){
+	let newArray = [];
+	for (let i = 0; i <= collection.length; i++) {
+		if (Array.isArray(collection)) {
+		return newArray.push(action(element, i, collection));
+	} else if (typeof collection === "object") {
+		return newArray.push(action(value, key, collection));
+	}
+	}
+}
 
 
 /** _.pluck
@@ -295,6 +323,10 @@ _.pluck = function (objArr, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
+_.every = function(collection, action) {
+
+}
+
 
 /** _.some
 * Arguments:
@@ -317,6 +349,11 @@ _.pluck = function (objArr, prop) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, action) {
+
+}
+
+
 
 /** _.reduce
 * Arguments:
@@ -337,6 +374,10 @@ _.pluck = function (objArr, prop) {
 *   _.reduce([1,2,3], function(previousSum, currentValue, currentIndex){ return previousSum + currentValue }, 0) -> 6
 */
 
+_.reduce = function(array, action, seed) {
+
+}
+
 
 /** _.extend
 * Arguments:
@@ -352,6 +393,11 @@ _.pluck = function (objArr, prop) {
 *   _.extend(data, {b:"two"}); -> data now equals {a:"one",b:"two"}
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
+
+_.extend = function(obj1, obj2) {
+
+}
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
