@@ -375,7 +375,17 @@ _.some = function(collection, action) {
 */
 
 _.reduce = function(array, action, seed) {
-
+	if (seed === undefined) {
+		seed = array[0];
+		for (var i = 1; i < array.length; i++) {
+			seed = action(seed, array[i], i);
+		}
+	} else {
+		for (var i = 0; i < array.length; i++) {
+			seed = action(seed, array[i], i);
+		}
+	}
+	return seed;
 }
 
 
