@@ -50,9 +50,11 @@ function isObject(value) {
  */
 function isCollection(value) {
     // YOUR CODE BELOW HERE //
-    
-    
-    
+    if (typeof value === 'object' || Array.isArray(value)) {
+        return true;
+    } else {
+        return false;
+    }
     
     // YOUR CODE ABOVE HERE //
 }
@@ -82,10 +84,10 @@ function typeOf(value) {
         return typeof value;
     } else if (Array.isArray(value) === true) {
         return "array";
-    } else if (typeof value === "object" && value !== null && Array.isArray(value) !== true && !(value instanceof Date)) {
-        return "object";
-    } else {
+    } else if (typeof value === "object" && value === null && Array.isArray(value) !== true && !(value instanceof Date)) {
         return "null";
+    } else if (value instanceof Date){
+        return "date";
     }
     // YOUR CODE ABOVE HERE //
 }
