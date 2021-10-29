@@ -13,8 +13,7 @@ function objectValues(object) {
 //////////////////////////////////////////////////////////////////////
 
 function keysToString(object) {
-    Object.keys(object);
-    return keys.toString + " ";
+    return Object.keys(object).join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -22,7 +21,7 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    
+    return Object.values(object).join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -62,9 +61,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    if (object.hasOwnProperty("name")) {
-        return "Welcome " + object.name + "!";
-    }
+        object.name[0].toUpperCase();
+        return "Welcome" + " " + object.name + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
