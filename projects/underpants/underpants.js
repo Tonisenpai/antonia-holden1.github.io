@@ -215,7 +215,13 @@ _.unique = function(array) {
 */
 
 _.filter = function(array, action) {
-
+    var filteredArray = [];
+    for (var i = 0; i < array.length; i++) {
+        if (action(array[i], i, array)) {
+            filteredArray.push(array[i]);
+        }
+    }
+    return filteredArray;
 }
 
 
