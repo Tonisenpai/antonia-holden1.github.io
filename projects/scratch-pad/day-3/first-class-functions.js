@@ -94,12 +94,12 @@ function modifyStrings(strings, modify) {
  */
 function allStringsPass(strings, test) {
     // YOUR CODE BELOW HERE //
-    for (var i = 0; i <= strings.length; i++) {
-        if (strings.length[i] === test) {
-            return true;
+    for (var i = 0; i < strings.length; i++) {
+        if (test(strings[i]) === false) {
+            return false;
         }
     }
-        return false;
+        return true;
     
     
     // YOUR CODE ABOVE HERE //
