@@ -50,10 +50,11 @@ function capitalizeWord(string) {
 
 function capitalizeAllWords(string) {
     let words = string.split(" ");
+    let newArr = [];
     for (let i = 0; i < words.length; i++) {
-        words[i][0] = words[i].slice(1);
+        newArr.push(words[i][0].slice([0]).toUpperCase() + words[i].slice(1));
     }
-    return words[i][0].toUpperCase() + words[i].length - words[i][0];
+    return newArr.join(" ");
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -61,8 +62,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-        object.name[0].toUpperCase();
-        return "Welcome" + " " + object.name + "!";
+    object.name.charAt(0).toUpperCase() + object.name.slice(1);
+    return "Welcome" + " " + object.name + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -70,8 +71,8 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-    if (object.hasOwnProperty("name") && object.hasOwnProperty("species")) {
-        return object.name + "is a " + object.species;
+    if (object.name > 0 && object.species > 0) {
+        return object.name + " is a " + object.species;
     }
 }
 
