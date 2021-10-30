@@ -21,7 +21,12 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    return Object.values(object).join(" ");
+    for (var i = 0; i < object.length; i++) {
+        if (object.values > 0 && typeof object.values === 'string') {
+            return Object.values(object).join(" ");
+        }
+    }
+    return;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -72,7 +77,7 @@ function welcomeMessage(object) {
 
 function profileInfo(object) {
     if (object.name > 0 && object.species > 0) {
-        return object.name + " is a " + object.species;
+        return object.name.toUpperCase() + " is a " + object.species.toUpperCase();
     }
 }
 
@@ -81,7 +86,7 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    if (object.isArray && object.hasOwnProperty(noises)) {
+    if (object.noises > 0 && Array.isArray(object.noises)) {
         return noises.split(" ");
     } else {
         return "there are no noises";
@@ -94,7 +99,7 @@ function maybeNoises(object) {
 
 function hasWord(string, word) {
     for (var i = 0; i < string.length; i++){
-        if (string[i].hasOwnProperty(word)) {
+        if (string[i] === word) {
             return true;
         } 
             
@@ -107,7 +112,8 @@ function hasWord(string, word) {
 //////////////////////////////////////////////////////////////////////
 
 function addFriend (name, object) {
-
+    object.friends.push(name);
+    return object;
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -115,7 +121,12 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-
+    for (var i = 0; i < object.friends.length - 1; i++) {
+        if (object.friends[i] === name) {
+            return true;
+        }
+    } 
+    return false;
 }
 
 //////////////////////////////////////////////////////////////////////
