@@ -64,7 +64,7 @@ function makeContactList() {
                     return contacts[i];
                     } 
                 }
-                return null;
+                return undefined;
         },
         removeContact: function(contact) {
             for (var i = 0; i < contacts.length; i++) {
@@ -76,9 +76,15 @@ function makeContactList() {
         },
         printAllContactNames: function() {
             for (var i = 0; i < contacts.length; i++) {
-               return contacts[i].join(" ").splice(2).join("\n");
+                var newString = "";
+                
+               if (i !== contacts.length - 1) {
+                   newString += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";
+               } else {
+                   newString += contacts[i].nameFirst + " " + contacts[i].nameLast;
+               }
             }
-          
+          return newString;
         }
     }
 }
