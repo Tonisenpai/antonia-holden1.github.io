@@ -32,7 +32,7 @@ function fizzBuzz() {
 
 function drawChessboard() {
   let spaces = 8;
-  let chessboard = ""
+  let chessboard = "";
 }
 
 ////////////////////////////////////////////////////////////////////////////////

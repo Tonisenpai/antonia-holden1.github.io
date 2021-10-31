@@ -195,7 +195,13 @@ _.each = function(collection, action) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 _.unique = function(array) {
-    
+    let uniqueArray = [];
+    for (var i = 0; i < array.length; i++) {
+        if (uniqueArray.indexOf(array[i]) === -1) {
+            uniqueArray.push(array[i])
+        } 
+    }
+    return uniqueArray;
 }
 
 /** _.filter
@@ -240,7 +246,13 @@ _.filter = function(array, action) {
 */
 
 _.reject = function(array, action) {
-
+    var rejectedArray = [];
+    for (var i = 0; i < array.length; i++) {
+        if (action(array[i], i, array) === false) {
+            rejectedArray.push(array[i]);
+        }
+    }
+    return rejectedArray;
 }
 
 
@@ -295,11 +307,12 @@ _.map = function (collection, action){
 	let newArray = [];
 	for (let i = 0; i <= collection.length; i++) {
 		if (Array.isArray(collection)) {
-		return newArray.push(action(element, i, collection));
+		newArray.push(action(collection[i], i, collection));
 	} else if (typeof collection === "object") {
-		return newArray.push(action(value, key, collection));
+		newArray.push(action(collection.value, collection.key, collection));
+	    }
 	}
-	}
+    return newArray;
 }
 
 
