@@ -21,12 +21,13 @@ function keysToString(object) {
 //////////////////////////////////////////////////////////////////////
 
 function valuesToString(object) {
-    for (var i = 0; i < object.length; i++) {
-        if (object.values > 0 && typeof object.values === 'string') {
-            return Object.values(object).join(" ");
+    var results = "";
+    for (var keys in object) {
+        if (typeof object[keys] === "string") {
+            results += object[keys] + " ";
         }
-    }
-    return;
+    } 
+    return results.trim();
 }
 
 //////////////////////////////////////////////////////////////////////

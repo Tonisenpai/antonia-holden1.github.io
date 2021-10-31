@@ -75,9 +75,8 @@ function makeContactList() {
             return null;
         },
         printAllContactNames: function() {
+            var newString = "";
             for (var i = 0; i < contacts.length; i++) {
-                var newString = "";
-                
                if (i !== contacts.length - 1) {
                    newString += contacts[i].nameFirst + " " + contacts[i].nameLast + "\n";
                } else {
