@@ -2,7 +2,7 @@
 // Function 1 - Object Values ////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 
-const { isObject, keys } = require("lodash");
+//const { isObject, keys } = require("lodash");
 
 function objectValues(object) {
     return Object.values(object);
@@ -68,8 +68,8 @@ function capitalizeAllWords(string) {
 //////////////////////////////////////////////////////////////////////
 
 function welcomeMessage(object) {
-    object.name.charAt(0).toUpperCase() + object.name.slice(1);
-    return "Welcome" + " " + object.name + "!";
+    let name = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+    return "Welcome " + name + "!";
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -77,9 +77,10 @@ function welcomeMessage(object) {
 //////////////////////////////////////////////////////////////////////
 
 function profileInfo(object) {
-    if (object.name > 0 && object.species > 0) {
-        return object.name.toUpperCase() + " is a " + object.species.toUpperCase();
-    }
+        let name = object.name.charAt(0).toUpperCase() + object.name.slice(1);
+        let species = object.species.charAt(0).toUpperCase() + object.species.slice(1);
+        return name + " is a " + species;
+
 }
 
 //////////////////////////////////////////////////////////////////////
@@ -87,8 +88,13 @@ function profileInfo(object) {
 //////////////////////////////////////////////////////////////////////
 
 function maybeNoises(object) {
-    if (object.noises > 0 && Array.isArray(object.noises)) {
-        return noises.split(" ");
+    console.log(Array.isArray(object.noises));
+    if(Array.isArray(object.noises) ) {
+        if (object.noises.length > 0) {
+        return object.noises.join(" ");
+    } else {
+        return "there are no noises";
+        }
     } else {
         return "there are no noises";
     }
@@ -99,8 +105,9 @@ function maybeNoises(object) {
 //////////////////////////////////////////////////////////////////////
 
 function hasWord(string, word) {
-    for (var i = 0; i < string.length; i++){
-        if (string[i] === word) {
+    let array = string.split(" ");
+    for (var i = 0; i < array.length; i++){
+        if (array[i] === word) {
             return true;
         } 
             
@@ -122,7 +129,10 @@ function addFriend (name, object) {
 //////////////////////////////////////////////////////////////////////
 
 function isFriend(name, object) {
-    for (var i = 0; i < object.friends.length - 1; i++) {
+    if (!object.friends) {
+        return false;
+    }
+    for (var i = 0; i < object.friends.length; i++) {
         if (object.friends[i] === name) {
             return true;
         }
