@@ -263,7 +263,16 @@ _.reject = function(array, action) {
 }
 */
 _.partition = function(array, action) {
-
+    let truthy = [];
+    let falsy = [];
+    for (let i = 0; i < array.length; i++) {
+        if (action(array[i], i, array)) {
+            truthy.push(array[i]);
+        } else {
+            falsy.push(array[i]);
+        }
+    }
+    return [truthy, falsy];
 }
 
 /** _.map
