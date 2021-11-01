@@ -352,12 +352,14 @@ _.pluck = function (objArr, prop) {
 */
 
 _.every = function(collection, test) {
-    for (var i = 0; i < array.length; i++) {
-		if (test(array[i], i, array) === false) {
+    for (var i = 0; i < collection.length; i++) {
+		if ((collection[i], i, collection) === false) {
 			return false;
-		} else if (test(array[i], i, array) === true) {
-      
-    }
+		    } else if (Array.isArray(collection) === true) {
+                (collection[i], i, collection)
+            } else if ((collection[i], i, collection) === true) {
+            
+            }
 	}
 	return true;
 }
