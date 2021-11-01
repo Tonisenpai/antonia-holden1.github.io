@@ -30,9 +30,22 @@ function fizzBuzz() {
 // drawChessboard //////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function drawChessboard() {
-  let spaces = 8;
-  let chessboard = "";
+function drawChessboard(num) {
+  let size = num;
+  let char = "";
+
+    for (var j = 0; j < size; j++) {
+	    for (var i = 0; i < size; i++) {
+      	  if ((i + j) % 2 === 0) {
+        	  char += " ";
+          } else {
+        	  char += "#";
+        }
+      }
+  char += "\n";
+}
+
+console.log(char);
 }
 
 ////////////////////////////////////////////////////////////////////////////////
