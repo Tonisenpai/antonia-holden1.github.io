@@ -308,8 +308,8 @@ _.map = function (collection, action){
 	for (let i = 0; i <= collection.length; i++) {
 		if (Array.isArray(collection)) {
 		newArray.push(action(collection[i], i, collection));
-	} else if (typeof collection === "object") {
-		newArray.push(action(collection.value, collection.key, collection));
+	} else if (typeof collection === "object" && collection !== null) {
+		newArray.push(action(collection[i], i, collection));
 	    }
 	}
     return newArray;
@@ -351,8 +351,15 @@ _.pluck = function (objArr, prop) {
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
 
-_.every = function(collection, action) {
-
+_.every = function(collection, test) {
+    for (var i = 0; i < array.length; i++) {
+		if (test(array[i], i, array) === false) {
+			return false;
+		} else if (test(array[i], i, array) === true) {
+      
+    }
+	}
+	return true;
 }
 
 
