@@ -303,15 +303,11 @@ _.partition = function(array, action) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
-_.map = function (collection, action){
+_.map = function (collection, func) {
 	let newArray = [];
-	for (let i = 0; i <= collection.length; i++) {
-		if (Array.isArray(collection)) {
-		newArray.push(action(collection[i], i, collection));
-	} else if (typeof collection === "object" && collection !== null) {
-		newArray.push(action(collection[i], i, collection));
-	    }
-	}
+	_.each(collection, function(element, index, collection) {
+        newArray.push(func(element, index, collection));
+     });
     return newArray;
 }
 
@@ -327,7 +323,11 @@ _.map = function (collection, action){
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 _.pluck = function (objArr, prop) {
-
+    let arr = [];
+ _.map(objArr, function(elements, i, collection) {
+     arr.push(collection[i][prop]);
+ });
+  return arr;
 }
 
 /** _.every
@@ -353,7 +353,7 @@ _.pluck = function (objArr, prop) {
 
 _.every = function(collection, test) {
     for (var i = 0; i < collection.length; i++) {
-		if ((collection[i], i, collection) === false) {
+		if ((collection[i], i, collection) === false || test === undefined) {
 			return false;
 		    } else if (Array.isArray(collection) === true) {
                 (collection[i], i, collection)

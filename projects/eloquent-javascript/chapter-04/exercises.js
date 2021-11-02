@@ -2,19 +2,19 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end, increment) {
+function range(start, end) {
   let rangeArray = [];
-    if (start < end) {
-		for (var i = start; i <= end; i++) {
-			rangeArray.push(i);
-		}
-	    } else if (start > end) {
-		for (var j = start; j >= end; j--) {
-        rangeArray.push(j);
-      } 
+  if (start < end) {
+  for (var i = start; i <= end; i++) {
+    rangeArray.push(i);
+  }
+    } else if (start > end) {
+  for (var j = start; j >= end; j--) {
+      rangeArray.push(j);
+    } 
 
-	}
-    return rangeArray;
+}
+  return rangeArray;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -95,8 +95,24 @@ function nth() {
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) {
+    return true;
+  } else if (obj1 && obj2 && typeof obj1 === 'object' && typeof obj2 === 'object' && Object.keys(obj1).length === Object.keys(obj2).length) {
+    if (Array.isArray(obj1) === Array.isArray(obj2)) {
+      for (let key in obj1) {
+        if (key in obj2) {
+          if (!deepEqual(obj1[key], obj2[key])) {
+            return false;
+          }
+        }
+        return true;
+      }
+    } else {
+      return false;
+    }
+  } else if (obj1.length && obj2.length)
+  return false;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
