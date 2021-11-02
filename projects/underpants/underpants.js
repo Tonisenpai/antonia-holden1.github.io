@@ -352,15 +352,25 @@ _.pluck = function (objArr, prop) {
 */
 
 _.every = function(collection, test) {
-    for (var i = 0; i < collection.length; i++) {
-		if ((collection[i], i, collection) === false || test === undefined) {
-			return false;
-		    } else if (Array.isArray(collection) === true) {
-                (collection[i], i, collection)
-            } else if ((collection[i], i, collection) === true) {
-            
+    if (test === undefined) {
+		for (var i = 0; i < collection.length; i++) {
+            return (collection[i] ? true : false);
+		}
+	} else if (Array.isArray(collection)) {
+        for (var i = 0; i < collection.length; i++) {
+				if (test(collection[i], i, collection) === false) {
+					return false;
+				}
+			}
+		} else {
+            for (var key in collection) {
+                if (test(collection[key], key, collection) === false) {
+					return false;
+			    }
             }
-	}
+			
+		}
+	
 	return true;
 }
 
@@ -386,8 +396,27 @@ _.every = function(collection, test) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
-_.some = function(collection, action) {
-
+_.some = function(collection, test) {
+    if (test === undefined) {
+		for (var i = 0; i < collection.length; i++) {
+            return (collection[i] ? true : false);
+		}
+	} else if (Array.isArray(collection)) {
+        for (var i = 0; i < collection.length; i++) {
+				if (test(collection[i], i, collection) === true) {
+					return true;
+				}
+			}
+		} else {
+            for (var key in collection) {
+                if (test(collection[key], key, collection) === true) {
+					return true;
+			    }
+            }
+			
+		}
+	
+	return false;
 }
 
 
@@ -442,7 +471,12 @@ _.reduce = function(array, action, seed) {
 */
 
 _.extend = function(obj1, obj2) {
-
+    for (var i = 0; i < arguments.length; i++) {
+        _.each(arguments[i], function(value, key) {
+            obj1[key] = value;
+        });
+    }
+    return obj1;
 }
 
 
