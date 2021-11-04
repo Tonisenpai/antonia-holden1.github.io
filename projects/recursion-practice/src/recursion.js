@@ -45,7 +45,7 @@ var isEven = function(n) {
   }
 	// recursion
 	return isEven(n - 2);
-};
+}; // LOOK AT CLASS NOTES FOR NOV 3 FOR ANSWER //
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45

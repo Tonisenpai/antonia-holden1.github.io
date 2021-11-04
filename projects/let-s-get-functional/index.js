@@ -21,13 +21,38 @@ var _ = require('underbar');
  *    IMPORTANT: Make sure you replace <YOUR_GITHUB_FOLDER with your actual github folder name that is in your workspace.
  */
 
-var maleCount = function(array) {
+ var maleCount = function(array) {
+	var allMen = _.filter(array, function(customer, index, array) {
+		if (customer[index] === "male") {
+			return true;
+		} else {
+			return false;
+		}
+	});
+	return array.push(allMen);
+}
 
-};
+var femaleCount = function(array) {
+	var allWomen = _.reduce(array, function(count, gender) {
+		if (gender === 'female') {
+			count + 1;
+		} else {
+			count - 1;
+		}
+	}, 0);
+	return allWomen;
+}
 
-var femaleCount;
-
-var oldestCustomer;
+var oldestCustomer = function(array) {
+	var oldest = _.reduce(array, function (count, age) {
+		if (count > age) {
+			return count = age;
+		} else {
+			return count;
+		}
+	}, 0)
+		return oldest;
+}
 
 var youngestCustomer;
 
