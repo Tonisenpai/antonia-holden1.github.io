@@ -38,30 +38,51 @@ var arraySum = function(array) {
 var isEven = function(n) {
   if (n === 0) {
 		return true;
-	} else if (n === 1 || n === -1) {
+	} else if (n === 1) {
 		return false;
-  } else if (n < 0) {
-    return true;
-  }
+  } 
 	// recursion
-	return isEven(n - 2);
-}; // LOOK AT CLASS NOTES FOR NOV 3 FOR ANSWER //
+	if (n > 0) {
+    return isEven(n - 2);
+  } else {
+    return isEven(n + 2);
+  }
+};
 
 // 5. Sum all integers below a given integer.
 // sumBelow(10); // 45
 // sumBelow(7); // 21
 var sumBelow = function(n) {
+  // base
+    //
+
+  // recursion
+    // if the 
+
 };
 
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr = []) {
 	// base
+    // if x + 1 === y
+			// push y into the array
+		// if y + 1 === x
+			// push x into the array ???
+      // OR does all this happen in the recursion section??
 	if (x + 1 === y) {
 		return arr;
 	}
 	// recursion
-	arr.push(x + 1, y, arr);
+    // if x > y
+		  // return range( push x + 1, y, array)
+	  // if x < y
+		  // return range ( push x, y + 1, array)
+	if (x > y) {
+    return range(arr.push(x + 1, y, arr));
+  } else if (x < y) {
+    return range(arr.push(x - 1, y, arr));
+  }
   
 };
 
@@ -71,6 +92,11 @@ var range = function(x, y, arr = []) {
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+  // base 
+
+  //recursion
+
+
 };
 
 // 8. Determine if a number is a power of two.
@@ -78,10 +104,17 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+// base
+
+// recursion
+
 };
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
+  // base
+
+  //recursion 
 };
 
 // 10. Write a function that determines if a string is a palindrome.

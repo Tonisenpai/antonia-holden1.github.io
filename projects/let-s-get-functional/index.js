@@ -22,25 +22,25 @@ var _ = require('underbar');
  */
 
  var maleCount = function(array) {
-	var allMen = _.filter(array, function(customer, index, array) {
-		if (customer[index] === "male") {
+	var allMen = _.filter(array, function(element){
+		if (element.gender === "male") {
 			return true;
 		} else {
 			return false;
 		}
 	});
-	return array.push(allMen);
+	return allMen.length;
 }
 
 var femaleCount = function(array) {
-	var allWomen = _.reduce(array, function(count, gender) {
-		if (gender === 'female') {
+	var allWomen = _.reduce(array, function(element, count) {
+		if (element.gender === 'female') {
 			count + 1;
 		} else {
 			count - 1;
 		}
 	}, 0);
-	return allWomen;
+	return count;
 }
 
 var oldestCustomer = function(array) {
