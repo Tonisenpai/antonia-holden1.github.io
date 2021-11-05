@@ -33,28 +33,38 @@ var _ = require('underbar');
 }
 
 var femaleCount = function(array) {
-	var allWomen = _.reduce(array, function(element, count) {
-		if (element.gender === 'female') {
+	var allWomen = _.reduce(array, function(allWomen, count) {
+		if (allWomen.gender === 'female') {
 			count + 1;
 		} else {
 			count - 1;
 		}
 	}, 0);
-	return count;
+	return allWomen;
 }
 
 var oldestCustomer = function(array) {
-	var oldest = _.reduce(array, function (count, age) {
-		if (count > age) {
-			return count = age;
+	var oldest = _.reduce(array, function (prev, current) {
+		if (prev.age < current.age) {
+			return current;
 		} else {
-			return count;
+			return prev;
 		}
-	}, 0)
-		return oldest;
+	}, 0);
+		return oldestCustomer.name;
 }
 
-var youngestCustomer;
+var youngestCustomer = function(array) {
+	var youngest = _.reduce(array, function (prev, current) {
+		if (prev.age > current.age) {
+			return current;
+		} else {
+			return prev;
+		}
+	}, 0);
+		return youngestCustomer.name;
+}
+
 
 var averageBalance;
 
