@@ -64,25 +64,18 @@ var sumBelow = function(n) {
 // 6. Get the integers in range (x, y).
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr = []) {
-	// base
-    // if x + 1 === y
-			// push y into the array
-		// if y + 1 === x
-			// push x into the array ???
-      // OR does all this happen in the recursion section??
-	if (x + 1 === y) {
-		return arr;
-	}
-	// recursion
-    // if x > y
-		  // return range( push x + 1, y, array)
-	  // if x < y
-		  // return range ( push x, y + 1, array)
-	if (x > y) {
-    return range(arr.push(x + 1, y, arr));
-  } else if (x < y) {
-    return range(arr.push(x - 1, y, arr));
-  }
+// base
+if (x + 1 === y) {
+  return arr;
+}
+// recursion
+if (x < y) {
+  arr.push(x + 1);
+  return range(x, y, arr);	
+} else {
+  arr.push(x - 1);
+  return range(x, y, arr);
+}
   
 };
 

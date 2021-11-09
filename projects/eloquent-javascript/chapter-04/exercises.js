@@ -2,19 +2,8 @@
 // range ///////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function range(start, end) {
-  let rangeArray = [];
-  if (start < end) {
-  for (var i = start; i <= end; i++) {
-    rangeArray.push(i);
-  }
-    } else if (start > end) {
-  for (var j = start; j >= end; j--) {
-      rangeArray.push(j);
-    } 
-
-}
-  return rangeArray;
+function range(start, end, step) {
+  
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,19 +49,24 @@ function reverseArrayInPlace(array) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function arrayToList(array) {
-  let list = {};
-  for (let i = array.length - 1; i >= 0; i--) {
-      list = { value: array[i], rest: null };
+  var rest = null;
+  for (var i = array.length - 1; i >= 0; i--) {
+      rest = {value: array[i], rest};
   }
-  return list;
+  return rest;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function listToArray() {
-
+function listToArray(list, arr = []) {
+  if (list.rest === null) {
+    arr.push(list.value);
+    return arr;
+  }
+  arr.push(list.value);
+  return listToArray(list.rest, arr);
 }
 
 ////////////////////////////////////////////////////////////////////////////////

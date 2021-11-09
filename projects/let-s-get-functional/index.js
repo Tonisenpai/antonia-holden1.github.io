@@ -33,12 +33,13 @@ var _ = require('underbar');
 }
 
 var femaleCount = function(array) {
-	var allWomen = _.reduce(array, function(allWomen, count) {
-		if (allWomen.gender === 'female') {
-			count + 1;
+	var allWomen = _.reduce(array, function(allWomen, customer) {
+		if (customer.gender === 'female') {
+			allWomen += 1;
 		} else {
-			count - 1;
+			allWomen;
 		}
+		return allWomen;
 	}, 0);
 	return allWomen;
 }
