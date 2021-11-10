@@ -3,7 +3,32 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 function range(start, end, step) {
-  
+  if (start === end) {
+    return [];
+  }
+  // initialize output array variable
+  var rangeArr = [];
+  // if step is not present, do this code
+  if (step === undefined) {
+    // create a for loop that counts from start to end
+    for (let i = start; i <= end; i++) {
+      // do what makes sure the output array is populated with values
+      rangeArr.push(i);
+    } 
+  } else {
+    // if step is negative
+    if (step < 0) {
+      return [];
+    } else {
+      // create a for loop that counts from start to end
+      for (let i= start; i <= end; i += step) {
+        rangeArr.push(i);
+      }
+    }
+  }
+
+  // return rangeArr
+  return rangeArr;
 }
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -73,40 +98,59 @@ function listToArray(list, arr = []) {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(val, obj) {
+  return {
+    value: val,
+    rest: obj
+  }
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, n) {
+  // use recursion // n === 0
+  // edge case
+  if (n < 0) {
+    return undefined;
+  }
+  // base case
+  if (n === 0) {
+    return list.value;
+  }
+  // recursion
+  return nth(list.rest, n - 1); // n - 1 will ensure that "n" will reach the base case
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual(obj1, obj2) {
-  if (obj1 === obj2) {
-    return true;
-  } else if (obj1 && obj2 && typeof obj1 === 'object' && typeof obj2 === 'object' && Object.keys(obj1).length === Object.keys(obj2).length) {
-    if (Array.isArray(obj1) === Array.isArray(obj2)) {
-      for (let key in obj1) {
-        if (key in obj2) {
-          if (!deepEqual(obj1[key], obj2[key])) {
-            return false;
-          }
-        }
-        return true;
-      }
-    } else {
+function deepEqual(val1, val2) {
+  // if both values are not objects, compare them directly
+  if (typeof val1 !== 'object' && typeof val2 !== "object") {
+    return val1 === val2;
+  }
+  // create arrays of objects keys
+  var keys1 = Object.keys(val1); // ['a', 'b']; [test]
+  var keys2 = Object.keys(val2); // ['a', 'b']; [test]
+
+  //determine if the keys arrays are the same length, if not return false
+  if (keys1.length !== keys2.length) {
+    return false;
+  }
+
+  // iterate through the keys arrays
+  for (var i = 0; i < keys1.length; i++) {
+    // does keys2 include the current key from keys1?
+    // keys includes('a')
+    if (!keys2.includes(keys1) || !deepEqual(val1[keys1[i]], val2[keys2[i]])) {
+      // keys.includes('a')
       return false;
     }
-  } else if (obj1.length && obj2.length)
-  return false;
+  }
+  return true;
 }
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -51,8 +51,8 @@ var oldestCustomer = function(array) {
 		} else {
 			return prev;
 		}
-	}, 0);
-		return oldestCustomer.name;
+	});
+		return oldest.name;
 }
 
 var youngestCustomer = function(array) {
@@ -62,14 +62,18 @@ var youngestCustomer = function(array) {
 		} else {
 			return prev;
 		}
-	}, 0);
-		return youngestCustomer.name;
+	});
+		return youngest.name;
 }
 
 
-var averageBalance;
+var averageBalance = function(array) {
 
-var firstLetterCount;
+};
+
+var firstLetterCount = function (array, letter) {
+	
+};
 
 var friendFirstLetterCount;
 

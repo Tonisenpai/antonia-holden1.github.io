@@ -86,7 +86,9 @@ if (x < y) {
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
   // base 
-
+  if (n === 0) {
+    return 1;
+  }
   //recursion
 
 
@@ -112,6 +114,12 @@ var reverse = function(string) {
 
 // 10. Write a function that determines if a string is a palindrome.
 var palindrome = function(string) {
+  // base
+
+
+  // recursion
+
+
 };
 
 // 11. Write a function that returns the remainder of x divided by y without using the
@@ -126,6 +134,12 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
+  if (x === 0 || y === 0) {
+    return 0;
+  } 
+  
+  
+  return multiply(y + (x + y));
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
@@ -208,6 +222,18 @@ var fibonacci = function(n) {
 // nthFibo(7); // 13
 // nthFibo(3); // 2
 var nthFibo = function(n) {
+  var memo = {};
+  if (n === 0 || n === 1) {
+    return n;
+  } else if (n < 0) {
+    return null;
+  }else if (memo[n]) {
+    return memo[n];
+  } else {
+    var result = nthFibo (n - 1) + nthFibo (n - 2);
+    memo[n] = result;
+    return result;
+  }
 };
 
 // 26. Given an array of words, return a new array containing each word capitalized.
