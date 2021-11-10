@@ -54,10 +54,18 @@ var isEven = function(n) {
 // sumBelow(7); // 21
 var sumBelow = function(n) {
   // base
-    //
-
+    // if n === 0, return n
+  if (n === 0) {
+    return n;
+  }
   // recursion
-    // if the 
+    // if n is greater than 0, return n - 1 + sumBelow(n - 1)
+      // else return the opposite
+  if (n > 0) {
+    return n - 1 + sumBelow(n - 1);
+  } else {
+    return n + 1 + sumBelow (n + 1);
+  }
 
 };
 
