@@ -68,11 +68,18 @@ var youngestCustomer = function(array) {
 
 
 var averageBalance = function(array) {
-
+	var average = _.reduce(array, function (balance, curVal, index) {
+		if (curVal === 0) {
+			return curVal;
+		} else {
+			return balance + curVal / index;
+		}
+	});
+	return average;
 };
 
 var firstLetterCount = function (array, letter) {
-	
+	var count = _.reduce(array, function(){})
 };
 
 var friendFirstLetterCount;
