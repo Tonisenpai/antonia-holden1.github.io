@@ -68,14 +68,9 @@ var youngestCustomer = function(array) {
 
 
 var averageBalance = function(array) {
-	var average = _.reduce(array, function (balance, curVal, index) {
-		if (curVal === 0) {
-			return curVal;
-		} else {
-			return balance + curVal / index;
-		}
-	});
-	return average;
+	var balances = _.map(customer => customer.balance);
+
+	return balances;
 };
 
 var firstLetterCount = function (array, letter) {

@@ -128,6 +128,9 @@ function nth(list, n) {
 ////////////////////////////////////////////////////////////////////////////////
 
 function deepEqual(val1, val2) {
+  if (val1 === null || val2 === null) {
+    return false;
+  }
   // if both values are not objects, compare them directly
   if (typeof val1 !== 'object' && typeof val2 !== "object") {
     return val1 === val2;
@@ -145,7 +148,7 @@ function deepEqual(val1, val2) {
   for (var i = 0; i < keys1.length; i++) {
     // does keys2 include the current key from keys1?
     // keys includes('a')
-    if (!keys2.includes(keys1) || !deepEqual(val1[keys1[i]], val2[keys2[i]])) {
+    if (!keys2.includes(keys1[i]) || !deepEqual(val1[keys1[i]], val2[keys2[i]])) {
       // keys.includes('a')
       return false;
     }
