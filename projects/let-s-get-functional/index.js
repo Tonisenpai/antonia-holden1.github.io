@@ -45,45 +45,79 @@ var femaleCount = function(array) {
 }
 
 var oldestCustomer = function(array) {
-	var oldest = _.reduce(array, function (prev, current) {
+	return _.reduce(array, function (prev, current) {
 		if (prev.age < current.age) {
 			return current;
 		} else {
 			return prev;
 		}
-	});
-		return oldest.name;
+	}).name;
 }
 
 var youngestCustomer = function(array) {
-	var youngest = _.reduce(array, function (prev, current) {
+	return _.reduce(array, function (prev, current) {
 		if (prev.age > current.age) {
 			return current;
 		} else {
 			return prev;
 		}
-	});
-		return youngest.name;
+	}).name;
+
 }
 
 
-var averageBalance = function(array) {
-	var balances = _.map(customer => customer.balance);
+var averageBalance = function(customer) {
+	return _.reduce(customer, (prev, current) => {
+		current["balance"].replace(/[$ ,]/g, "");
+		prev += parseFloat(current.balance.replace(/[$ ,]/g, ""));
+		return prev;
+	}, 0) / customer.length;
 
-	return balances;
 };
 
 var firstLetterCount = function (array, letter) {
-	var count = _.reduce(array, function(){})
+	 return _.reduce(array, function(prev, current){
+		if (current.name[0].toUpperCase() === letter.toUpperCase()) {
+			prev += 1;
+		}
+		return prev;
+	}, 0);
 };
 
-var friendFirstLetterCount;
+var friendFirstLetterCount = function (array, customer, letter) {
+	let friends = _.reduce(array, function(prev, current){
+		if(current.name === customer) {
+			prev = current.friends;
+		}
+		return prev;
+	}, []);
+	return firstLetterCount(friends, letter);
+};
 
-var friendsCount;
+var friendsCount = function (array, name) {
+	return _.reduce(array, function(prev, current){
+		for (var i = 0; i < current.friends.length; i++) {
+			if(current.friends[i].name === name) {
+				prev.push(current.name);
+			}
+		}
+		
+		return prev;
+	}, []);
+};
 
 var topThreeTags;
 
-var genderCount;
+var genderCount = function(array) {
+	return _.reduce(array, function(prev, current){
+		if(prev[current.gender]) {
+			prev[current.gender]++;
+		} else {
+			prev[current.gender] = 1;
+		}
+		return prev;
+	}, {});
+};
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////

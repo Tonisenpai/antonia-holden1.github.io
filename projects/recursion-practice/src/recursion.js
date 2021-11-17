@@ -73,16 +73,20 @@ var sumBelow = function(n) {
 // Example:  range(2, 9);  // [3, 4, 5, 6, 7, 8]
 var range = function(x, y, arr = []) {
 // base
-if (x + 1 === y) {
+if (x === y) {
+  return [];
+}
+
+if (x + 1 === y || x - 1 === y) {
   return arr;
 }
 // recursion
 if (x < y) {
   arr.push(x + 1);
-  return range(x, y, arr);	
+  return range(x + 1, y, arr);	
 } else {
   arr.push(x - 1);
-  return range(x, y, arr);
+  return range(x - 1, y, arr);
 }
   
 };
@@ -115,10 +119,13 @@ var powerOfTwo = function(n) {
 
 // 9. Write a function that accepts a string a reverses it.
 var reverse = function(string) {
-  // base
-   
-  //recursion 
- 
+  if(string.length <= 1){
+    return string;
+}
+else {
+    return string.charAt(string.length - 1) + reverse(string.substring(0, string.length - 1));
+}
+
 };
 
 // 10. Write a function that determines if a string is a palindrome.
@@ -149,12 +156,16 @@ var modulo = function(x, y) {
 // JavaScript's Math object.
 // ATTENTION DO NOT LEAVE COMMENTS IN THIS FUNCTION. The test is looking for any ('/').
 var multiply = function(x, y) {
-  if (x === 0 || y === 0) {
+  if (y === 0) {
     return 0;
   } 
-  
-  
-  return multiply(y + (x + y));
+
+ if (y < 0) {
+   return -x + multiply(x, y + 1);
+ } else {
+   return x + multiply(x, y - 1);
+ }
+ 
 };
 
 // 13. Write a function that divides two numbers without using the / operator  or
