@@ -106,7 +106,39 @@ var friendsCount = function (array, name) {
 	}, []);
 };
 
-var topThreeTags;
+var topThreeTags = function(array) {
+	var tagsArr = [];
+	// iterate through customers
+	for (let i = 0; i < array.length; i++) {
+		var tags = array[i].tags;
+		// iterate through tags
+		for (let i = 0; i < tags.length; i++) {
+			tagsArr.push(tags[i]);
+		}
+	}
+
+	var countObj = _.reduce(tagsArr, function(prev, tag){
+		if (prev[tag]) {
+			prev[tag] += 1;
+		} else {
+			prev[tag] = 1;
+		}
+		return prev;
+	}, {});
+
+	var countArr = [];
+	for (var key in countObj) {
+		var currentArr = [];
+		currentArr.push(key);
+		currentArr.push(countObj[key]);
+		countArr.push(currentArr);
+	}
+	countArr.sort(function(a, b) {
+		return b[1] - a[1];
+	});
+	var newArray = [countArr[0][0], countArr[1][0], countArr[2][0]];
+	return newArray;
+};
 
 var genderCount = function(array) {
 	return _.reduce(array, function(prev, current){

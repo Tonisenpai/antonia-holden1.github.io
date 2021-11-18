@@ -96,13 +96,25 @@ if (x < y) {
 // 8^2 = 8 x 8 = 64.  Here, 8 is the base and 2 is the exponent.
 // Example:  exponent(4,3);  // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
-var exponent = function(base, exp) {
+var exponent = function(base, exp, results = base) {
   // base 
-  if (n === 0) {
+  if (exp === 0) {
     return 1;
   }
-  //recursion
-
+  if(exp > 0) {
+    if (exp === 1) {
+      return results;
+    }
+    //recursion
+    return exponent(base, exp - 1, results * base);
+  } else {
+    if (exp === -1) {
+      return 1 / results;
+    }
+    //recursion
+    return exponent(base, exp + 1, results * base);
+  }
+ 
 
 };
 
@@ -112,9 +124,13 @@ var exponent = function(base, exp) {
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
 // base
-
+if (n < 1) {
+  return false;
+} else if (n === 1 || n === 2) {
+  return true;
+}
 // recursion
-
+return powerOfTwo(n / 2);
 };
 
 // 9. Write a function that accepts a string a reverses it.
@@ -195,7 +211,14 @@ var createArray = function(str){
 };
 
 // 17. Reverse the order of an array
-var reverseArr = function (array) {
+var reverseArr = function (array, newArray = []) {
+  // base
+ if(array.length === 0) {
+   return newArray;
+ }
+  // recursion
+  newArray.push(array.pop());
+ return reverseArr(array, newArray);
 };
 
 // 18. Create a new array with a given value and length.
@@ -207,12 +230,27 @@ var buildList = function(value, length) {
 // 19. Count the occurence of a value inside a list.
 // countOccurrence([2,7,4,4,1,4], 4) // 3
 // countOccurrence([2,'banana',4,4,1,'banana'], 'banana') // 2
-var countOccurrence = function(array, value) {
+var countOccurrence = function(array, value, count = 0) {
+  // base
+if (array.length === 0) {
+  return count;
+}
+  // recursion
+  if (array.pop() === value) {
+    count++;
+  }
+return countOccurrence(array, value, count);
 };
 
 // 20. Write a recursive version of map.
 // rMap([1,2,3], timesTwo); // [2,4,6]
-var rMap = function(array, callback) {
+var rMap = function(array, callback, i = 0, newArray = []) {
+if (i === array.length) {
+  return newArray;
+}
+  newArray[i] = array[i];
+ newArray[i] = callback(newArray[i]);
+ return rMap(array, callback, i + 1, newArray);
 };
 
 // 21. Write a function that counts the number of times a key occurs in an object.
