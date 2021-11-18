@@ -76,6 +76,10 @@ the next section). Global scope variables are variables that can be
 accessed by all of the code. Function scoped variables are variables that
 cane only be accessed within the function they were created in.
 
+Let and Const are both block scoped. Let can be reassigned. Const cannot
+be re-assigned to another value. It's just like it sounds, it is a 
+constant value.
+
 */
 
 var name = "Victoria";
@@ -90,6 +94,9 @@ console.log(name);
 console.log(nickName); 
 // causes an error, because "nickName" can only be accessed inside the function
 
+
+const car = "honda";
+const car = "mazda"; // this will throw an error because const cannot be re-assigned
 
 // 5. Hoisting //
 

@@ -154,3 +154,33 @@ let x = 20;
 let y = 2;
 x /= y; // divides both values and assigns the result to the left operand, result of 10 will be assigned to x
 
+// 5. Unary Operators //
+
+/*
+
+Unary operators are placed before the values or operands they act on.
+They attempt to change them into numerical values. It will attempt to 
+change it into either a 1 or a 0, or the number it was assigned to, if it 
+was assigned to a number.
+
+*/
+
+console.log(+true); // expected output: 1
+
+console.log(+false); // expected output: 0
+
+
+// 6. Ternary Operators //
+
+/*
+
+A ternary operator is also a conditional operator. It begins with
+a condition, followed by a question mark and will result in true or
+false, where true is located behind the question mark and before a 
+colon and false is located behind the colon.
+
+*/
+
+function fellowsList(name) {
+	return (isFellow ? true : false); // will return true if name is in list of fellows
+}

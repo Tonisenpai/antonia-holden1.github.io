@@ -97,3 +97,32 @@ let animeList = {
 
 
 getArrayOfAnime(animeList); // animeList is the argument being passed into the function to be acted on
+
+// 4. Arrow Functions //
+
+/*
+
+These are simpler and quicker ways to write a function. The reason they are
+called arrow functions is because they point to the action using an arrow =>
+and sometimes curly braces aren't necessary, unless the function requires more
+than one line. This is a new addition to JavaScript (ES6) to cut down on the 
+time it requires to produce code. 
+
+*/
+
+// normal function 
+function (x){
+  return x + 2;
+}
+
+// arrow function
+x => x + 2;
+
+// 5. Closure //
+
+/*
+
+A closure is a function that gives you access to an outer function's scope 
+from an inner function. 
+
+*/

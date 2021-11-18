@@ -203,6 +203,21 @@ var gcd = function(x, y) {
 // compareStr('', '') // true
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+  if (str1 === "" && str2 === "") {
+    return true;
+  }
+  if (str1.length === 1 && str2.length === 1) {
+    if (str1[0] === str2[0]) {
+        return true;
+    }
+}
+if (str1[0] !== str2[0]) {
+  return false;
+}
+  if (str1[0] === str2[0]) {
+    return compareStr(str1.slice(1), str2.slice(1));
+} 
+  
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
@@ -312,11 +327,27 @@ var nthFibo = function(n) {
 // var words = ['i', 'am', 'learning', 'recursion'];
 // capitalizedWords(words); // ['I', 'AM', 'LEARNING', 'RECURSION']
 var capitalizeWords = function(input) {
+  if (input.length === 1) {
+    return [input[0].toUpperCase()];
+  }
+  let res = capitalizeWords(input.slice(0, -1));
+  res.push(input.slice(input.length-1)[0].toUpperCase());
+  return res;
 };
 
 // 27. Given an array of strings, capitalize the first letter of each index.
 // capitalizeFirst(['car', 'poop', 'banana']); // ['Car', 'Poop', 'Banana']
-var capitalizeFirst = function(array) {
+var capitalizeFirst = function(array, newArray=[]) {
+  // base
+  if (array.length === 0) {
+    return [];
+  } else if (array.length === 1) {
+    array[0].toUpperCase();
+    return newArray.push(array[0]);
+  }
+
+// recursion
+newArray.push()
 };
 
 // 28. Return the sum of all even numbers in an object containing nested objects.
@@ -346,15 +377,19 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list, length=0, deletable=false) {
-  if(length < list.length){
-    if(deletable){
-       list.splice(length, 1);
-       length--;
-    }
-    return compress(list, length + 1, list[length] === list[length + 1])
- };
- return;
+var compress = function(list, arr=[]) {
+  // base
+  if (length === 0) {
+    return arr;
+  }
+
+// recursion 
+if (arr.includes(list[0])) {
+  return compress(list.slice(1), arr);
+} else {
+ arr.push(list[0]) 
+ return compress(list.slice(1), arr);
+  }
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -366,7 +401,19 @@ var augmentElements = function(array, aug) {
 // 33. Reduce a series of zeroes to a single 0.
 // minimizeZeroes([2,0,0,0,1,4]) // [2,0,1,4]
 // minimizeZeroes([2,0,0,0,1,0,0,4]) // [2,0,1,0,4]
-var minimizeZeroes = function(array) {
+var minimizeZeroes = function(array, newArr=[]) {
+  if (array.length === 0) { return newArr }
+
+    if (array[0] !== 0) {
+        newArr.push(array[0]);
+        return minimizeZeroes(array.slice(1), newArr);
+    }
+    
+    if (array[0] !== array[1]) {
+        newArr.push(array[0]);
+        return minimizeZeroes(array.slice(1), newArr);
+    }
+    return minimizeZeroes(array.slice(1), newArr);
 };
 
 // 34. Alternate the numbers in an array between positive and negative regardless of
@@ -387,12 +434,12 @@ var alternateSign = function(array, index=0, outputArr=[]) {
     }
   } else {
     if (array[0] < 0) {
-      outputArr.push(arr[0]);
+      outputArr.push(array[0]);
     } else {
       outputArr.push(-1 * array[0]);
     }
-    return alternateSign(array.slice(1), index + 1, outputArr);
   }
+  return alternateSign(array.slice(1), index + 1, outputArr);
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.

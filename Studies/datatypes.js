@@ -58,6 +58,8 @@ objects (see objects part). It can also exist as a value inside an array.
 
 let myBool = true;  // value attached to a variable
 
+5 === 3; // will return false
+
 let car = {
 	make: "Honda",
 	model: "Civic",

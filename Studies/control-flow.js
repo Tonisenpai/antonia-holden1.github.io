@@ -17,6 +17,9 @@
 These statements give conditional logic where the outcome of each statement is a boolean value.
 This lets you sort through the function and only act on the values you want to act on by eliminating
 the erroneous values included in the data set that don't fit in what you want your result to be.
+If statements always execute if the condition is true. If-Else statements only execute if it is true 
+and the first if statement (or any preceding statements) resulted in false. Else statements only execute
+if all other statements are false. 
 
 */
 
