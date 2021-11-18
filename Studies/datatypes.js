@@ -172,7 +172,13 @@ NaN is an acronym that stands for Not a Number.
 
 // 10. Infinity and -Infinity //
 
-//
+/*
+
+Infinity is a variable in the global scope. The initial value of Infinity is Number.POSITIVE_INFINITY. 
+The value Infinity (positive infinity) is greater than any other number. Negative infinity is the
+direct opposite of positive infinity.
+
+*/
 
 
 // 11. Primitive (Simple) vs Complex Data Types //
