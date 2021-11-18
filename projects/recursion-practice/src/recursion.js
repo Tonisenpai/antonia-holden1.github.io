@@ -224,7 +224,15 @@ var reverseArr = function (array, newArray = []) {
 // 18. Create a new array with a given value and length.
 // buildList(0,5) // [0,0,0,0,0]
 // buildList(7,3) // [7,7,7]
-var buildList = function(value, length) {
+var buildList = function(value, length, arr=[]) {
+  // base
+  if (length === 0) {
+    return arr;
+  }
+  // recursion
+  arr.push(value);
+  return buildList(value, length - 1, arr);
+
 };
 
 // 19. Count the occurence of a value inside a list.
@@ -338,7 +346,15 @@ var letterTally = function(str, obj) {
 // elements should not be changed.
 // Example: compress([1, 2, 2, 3, 4, 4, 5, 5, 5]) // [1, 2, 3, 4, 5]
 // Example: compress([1, 2, 2, 3, 4, 4, 2, 5, 5, 5, 4, 4]) // [1, 2, 3, 4, 2, 5, 4]
-var compress = function(list) {
+var compress = function(list, length=0, deletable=false) {
+  if(length < list.length){
+    if(deletable){
+       list.splice(length, 1);
+       length--;
+    }
+    return compress(list, length + 1, list[length] === list[length + 1])
+ };
+ return;
 };
 
 // 32. Augment every element in a list with a new value where each element is an array
@@ -357,13 +373,58 @@ var minimizeZeroes = function(array) {
 // their original sign.  The first number in the index always needs to be positive.
 // alternateSign([2,7,8,3,1,4]) // [2,-7,8,-3,1,-4]
 // alternateSign([-2,-7,8,3,-1,4]) // [2,-7,8,-3,1,-4]
-var alternateSign = function(array) {
+var alternateSign = function(array, index=0, outputArr=[]) {
+  // base
+  if (array.length === 0) {
+    return outputArr;
+  }
+  // recursion
+  if (index % 2 === 0) {
+    if (array[0] < 0) {
+      outputArr.push(-1 * array[0]);
+    } else {
+      outputArr.push(array[0]);
+    }
+  } else {
+    if (array[0] < 0) {
+      outputArr.push(arr[0]);
+    } else {
+      outputArr.push(-1 * array[0]);
+    }
+    return alternateSign(array.slice(1), index + 1, outputArr);
+  }
 };
 
 // 35. Given a string, return a string with digits converted to their word equivalent.
 // Assume all numbers are single digits (less than 10).
 // numToText("I have 5 dogs and 6 ponies"); // "I have five dogs and six ponies"
-var numToText = function(str) {
+var numToText = function(str, outputStr="") {
+  var numText = {
+    1: "one",
+    2: "two",
+    3: "three",
+    4: "four",
+    5: "five",
+    6: "six",
+    7: "seven",
+    8: "eight",
+    9: "nine",
+    10: "ten"
+  };
+
+  var keys = Object.keys(numText);
+  // base
+  if (str.length === 0) {
+    return outputStr;
+  }
+
+  // recursion
+  if (keys.includes(str[0])) {
+    outputStr += numText[str[0]];
+  } else {
+    outputStr += str[0];
+  }
+  return numToText(str.slice(1), outputStr);
 };
 
 // *** EXTRA CREDIT ***
